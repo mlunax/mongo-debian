@@ -3,13 +3,16 @@ version: '3'
 services:
   db:
     build: .
-    image: mlunax/mongo-debian:0.0.1
+    user: 1000:1000
+    environment: 
+      - START_ARGS="--auth"
+    image: mlunax/mongo-debian:0.0.3
     ports: 
       - 127.0.0.1:27017:27017
     volumes:
-      - ./db:/data/db:rw
+      - ./db:/data/db
   client: 
-    image: mlunax/mongo-debian:0.0.1
+    image: mlunax/mongo-debian:0.0.3
     command: mongo mongodb://db:27017
     depends_on: 
       - db
