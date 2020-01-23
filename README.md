@@ -1,6 +1,9 @@
 # mongo-debian
 MongoDB Debian Docker
 
+## Before run
+If you want custom startup arguments set env `START_ARGS`.
+
 ## Bulding and run
 Only build the image
 
