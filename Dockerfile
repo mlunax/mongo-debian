@@ -10,5 +10,5 @@ WORKDIR /data
 COPY ./docker-entrypoint.sh ./
 RUN chmod +x docker-entrypoint.sh
 ENTRYPOINT [ "./docker-entrypoint.sh" ]
-CMD [ "--bind_ip_all" ]
+CMD [ "mongod", "--bind_ip 0.0.0.0" ]
 EXPOSE 27017
